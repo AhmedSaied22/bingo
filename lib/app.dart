@@ -12,9 +12,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
+      designSize: const Size(1440, 900),
       minTextAdapt: true,
       splitScreenMode: true,
-      designSize: const Size(1440, 900),
+      useInheritedMediaQuery: true,
       builder: (_, child) {
         return MaterialApp(
           title: 'Bingo Game',

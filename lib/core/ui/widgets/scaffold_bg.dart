@@ -12,6 +12,10 @@ class ScaffoldBackground extends StatelessWidget {
       color: Colors.black,
       child: Stack(
         children: [
+          Image.network(
+            "https://img.freepik.com/free-vector/web-tech-white-background-with-binary-code-algorithm-numbers_1017-54579.jpg",
+            height: 400,
+          ),
           _buildGlowEffect(
             alignment: const Alignment(-0.8, -0.8),
             color: AppColors.secondaryColor.withValues(alpha: 0.22),

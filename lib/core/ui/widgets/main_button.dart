@@ -4,17 +4,25 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class MainButton extends StatelessWidget {
-  const MainButton(
-      {super.key, required this.title, required this.color, this.onPressed});
+  const MainButton({
+    super.key,
+    required this.label,
+    required this.color,
+    this.onPressed,
+    this.height,
+  });
 
-  final String title;
+  final String label;
   final void Function()? onPressed;
   final Color color;
+  final double? height;
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: context.screenWidth * 0.4,
+    return ConstrainedBox(
+      constraints: BoxConstraints(
+          minWidth: context.screenWidth * 0.3,
+          maxWidth: context.screenWidth * 0.4),
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           backgroundColor: color,
@@ -23,7 +31,7 @@ class MainButton extends StatelessWidget {
           ),
         ),
         onPressed: onPressed ?? () {},
-        child: Text(title,
+        child: Text(label,
             style: AppFonts.text16Normal(context).copyWith(
                 color: Colors.white,
                 fontFamily: GoogleFonts.chewy().fontFamily)),

@@ -4,16 +4,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AppTheme {
-  // static const Gradient scaffoldGradient = LinearGradient(
-  //   begin: Alignment.topCenter,
-  //   end: Alignment.bottomCenter,
-  //   colors: [
-  //     Color(0xFF8E2DE2), // درجة بنفسجي فاتح
-  //     Color(0xFF4A00E0), // بنفسجي غامق
-  //     Colors.black, // أسود في الأسفل
-  //   ],
-  //   stops: [0.0, 0.5, 1.0],
-  // );
   static ThemeData get darkTheme {
     return ThemeData.dark().copyWith(
       scaffoldBackgroundColor: Colors.transparent,
