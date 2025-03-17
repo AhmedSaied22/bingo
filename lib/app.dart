@@ -13,6 +13,14 @@ class MyApp extends StatelessWidget {
       title: 'Bingo Game',
       theme: AppTheme.darkTheme,
       debugShowCheckedModeBanner: false,
+      builder: (context, child) {
+        return Container(
+          decoration: const BoxDecoration(
+            gradient: AppTheme.scaffoldGradient,
+          ),
+          child: child,
+        );
+      },
       initialRoute: RoutesName.home,
       navigatorKey: navigatorKey,
       onGenerateRoute: RouteGenerator.generateRoute,
