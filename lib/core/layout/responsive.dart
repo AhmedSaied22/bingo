@@ -1,4 +1,6 @@
+import 'package:bingo/core/utils/size_config.dart';
 import 'package:flutter/material.dart';
+import 'package:bingo/core/extensions/media_query_extensions.dart';
 
 class ResponsiveLayout extends StatelessWidget {
   final Widget mobile;
@@ -12,20 +14,21 @@ class ResponsiveLayout extends StatelessWidget {
     required this.mobile,
     this.tablet,
     required this.desktop,
-    this.mobileBreakpoint = 599,
-    this.tabletBreakpoint = 1199,
+    this.mobileBreakpoint = SizeConfig.tabletBreakPoint, // 599
+    this.tabletBreakpoint = SizeConfig.desktopBreakPoint, // 1199
   });
 
   static bool isMobile(BuildContext context) =>
-      MediaQuery.of(context).size.width <= 599;
+      context.screenWidth <= SizeConfig.tabletBreakPoint;
 
   static bool isTablet(BuildContext context) {
-    final width = MediaQuery.of(context).size.width;
-    return width > 599 && width <= 1199;
+    final width = context.screenWidth;
+    return width > SizeConfig.tabletBreakPoint &&
+        width <= SizeConfig.desktopBreakPoint;
   }
 
   static bool isDesktop(BuildContext context) =>
-      MediaQuery.of(context).size.width > 1199;
+      context.screenWidth > SizeConfig.desktopBreakPoint;
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +38,7 @@ class ResponsiveLayout extends StatelessWidget {
         if (width > tabletBreakpoint) {
           return desktop;
         } else if (width > mobileBreakpoint) {
-          return tablet ?? desktop; 
+          return tablet ?? desktop;
         } else {
           return mobile;
         }

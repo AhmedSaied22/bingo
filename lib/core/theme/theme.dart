@@ -1,3 +1,4 @@
+import 'package:bingo/core/ui/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -7,7 +8,7 @@ class AppTheme {
     begin: Alignment.topCenter,
     end: Alignment.bottomCenter,
     colors: [
-      Color(0xFF6A1B9A),
+      AppColors.primaryColor,
       Colors.black,
     ],
     stops: [0.3, 0.7],
@@ -17,22 +18,22 @@ class AppTheme {
     return ThemeData.dark().copyWith(
       scaffoldBackgroundColor: Colors.transparent,
       colorScheme: ColorScheme.fromSeed(
-        seedColor: Colors.deepPurple,
+        seedColor: AppColors.primaryColor,
         brightness: Brightness.dark,
       ),
       textTheme: GoogleFonts.luckiestGuyTextTheme().copyWith(
-        bodyLarge: const TextStyle(color: Colors.white),
-        bodyMedium: const TextStyle(color: Colors.white),
-        displayLarge: const TextStyle(color: Colors.white),
-        displayMedium: const TextStyle(color: Colors.white),
-        displaySmall: const TextStyle(color: Colors.white),
+        bodyLarge: const TextStyle(color: AppColors.textColor),
+        bodyMedium: const TextStyle(color: AppColors.textColor),
+        displayLarge: const TextStyle(color: AppColors.textColor),
+        displayMedium: const TextStyle(color: AppColors.textColor),
+        displaySmall: const TextStyle(color: AppColors.textColor),
       ),
       appBarTheme: AppBarTheme(
         backgroundColor: Colors.transparent,
         elevation: 0,
         titleTextStyle: GoogleFonts.luckiestGuy(
           fontSize: 24.sp,
-          color: Colors.white,
+          color: AppColors.textColor,
         ),
       ),
     );

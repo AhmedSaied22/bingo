@@ -105,7 +105,7 @@ class CustomTextField extends StatelessWidget {
         hintStyle: hintStyle,
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(borderRadius ?? 14.r),
-          borderSide: const BorderSide(color: AppColors.mainColor),
+          borderSide: const BorderSide(color: AppColors.primaryColor),
         ),
         prefixIcon: prefixIcon,
         prefix: prefixIcon == null
@@ -123,7 +123,7 @@ class CustomTextField extends StatelessWidget {
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(borderRadius ?? 12.r),
-          borderSide: const BorderSide(color: AppColors.mainColor),
+          borderSide: const BorderSide(color: AppColors.primaryColor),
         ),
       ),
     );
