@@ -1,21 +1,21 @@
-import 'package:bingo/features/home/presentation/views/home_view.dart';
+import 'package:bingo/core/routes/routes_gen.dart';
+import 'package:bingo/core/routes/routes_name.dart';
+import 'package:bingo/core/theme/theme.dart';
 import 'package:bingo/main.dart';
 import 'package:flutter/material.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Bingo Game',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
+      theme: AppTheme.darkTheme,
+      debugShowCheckedModeBanner: false,
+      initialRoute: RoutesName.home,
       navigatorKey: navigatorKey,
-      home: const HomeView(),
+      onGenerateRoute: RouteGenerator.generateRoute,
     );
   }
 }
