@@ -1,3 +1,5 @@
+import 'package:bingo/core/extensions/media_query_extensions.dart';
+import 'package:bingo/core/images/app_images.dart';
 import 'package:bingo/core/ui/app_colors.dart';
 import 'package:flutter/material.dart';
 
@@ -12,9 +14,13 @@ class ScaffoldBackground extends StatelessWidget {
       color: Colors.black,
       child: Stack(
         children: [
-          Image.network(
-            "https://img.freepik.com/free-vector/web-tech-white-background-with-binary-code-algorithm-numbers_1017-54579.jpg",
-            height: 400,
+          Opacity(
+            opacity: 0.2,
+            child: Image.asset(
+              Assets.texture,
+              fit: BoxFit.cover,
+              height: context.screenHeight,
+            ),
           ),
           _buildGlowEffect(
             alignment: const Alignment(-0.8, -0.8),
