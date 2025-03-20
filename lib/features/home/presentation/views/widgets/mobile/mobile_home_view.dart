@@ -1,7 +1,6 @@
+import 'package:bingo/core/extensions/font_styles_extensions.dart';
 import 'package:bingo/core/extensions/media_query_extensions.dart';
 import 'package:bingo/core/ui/app_colors.dart';
-import 'package:bingo/core/ui/app_styles_fonts.dart';
-import 'package:bingo/core/ui/widgets/main_button.dart';
 import 'package:bingo/features/home/presentation/views/widgets/home_buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -18,7 +17,7 @@ class MobileHomeView extends StatelessWidget {
         children: [
           Text(
             'BINGO',
-            style: AppFonts.text36SemiBold(context),
+            style: context.headingLarge,
           ),
           Divider(
             thickness: 2.w,
@@ -33,4 +32,3 @@ class MobileHomeView extends StatelessWidget {
     );
   }
 }
-

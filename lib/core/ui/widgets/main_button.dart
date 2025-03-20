@@ -1,7 +1,6 @@
+import 'package:bingo/core/extensions/font_styles_extensions.dart';
 import 'package:bingo/core/extensions/media_query_extensions.dart';
-import 'package:bingo/core/ui/app_styles_fonts.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class MainButton extends StatelessWidget {
   const MainButton({
@@ -31,10 +30,7 @@ class MainButton extends StatelessWidget {
           ),
         ),
         onPressed: onPressed ?? () {},
-        child: Text(label,
-            style: AppFonts.text16Normal(context).copyWith(
-                color: Colors.white,
-                fontFamily: GoogleFonts.chewy().fontFamily)),
+        child: Text(label, style: context.buttonText),
       ),
     );
   }

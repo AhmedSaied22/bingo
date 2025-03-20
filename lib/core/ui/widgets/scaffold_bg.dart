@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:bingo/core/extensions/media_query_extensions.dart';
 import 'package:bingo/core/images/app_images.dart';
 import 'package:bingo/core/ui/app_colors.dart';
@@ -14,14 +16,7 @@ class ScaffoldBackground extends StatelessWidget {
       color: Colors.black,
       child: Stack(
         children: [
-          Opacity(
-            opacity: 0.2,
-            child: Image.asset(
-              Assets.texture,
-              fit: BoxFit.cover,
-              height: context.screenHeight,
-            ),
-          ),
+          BlurredImage(),
           _buildGlowEffect(
             alignment: const Alignment(-0.8, -0.8),
             color: AppColors.secondaryColor.withValues(alpha: 0.22),
@@ -53,6 +48,27 @@ class ScaffoldBackground extends StatelessWidget {
             radius: 0.8,
             colors: [color, Colors.transparent],
             stops: const [0.1, 1.0],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class BlurredImage extends StatelessWidget {
+  const BlurredImage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: ImageFiltered(
+        imageFilter: ImageFilter.blur(sigmaX: 2.5, sigmaY: 2.5),
+        child: Opacity(
+          opacity: 0.2,
+          child: Image.asset(
+            Assets.texture,
+            fit: BoxFit.cover,
+            height: context.screenHeight,
           ),
         ),
       ),

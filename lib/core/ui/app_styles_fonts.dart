@@ -4,127 +4,62 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AppFonts {
-  static final String fontFamily =
-      GoogleFonts.righteous().fontFamily ?? 'DefaultFont';
+  // Font Families
+  static const String primaryFont = 'Righteous';
+  static const String secondaryFont = 'Chewy';
 
-  // Font weights
-  static const FontWeight light = FontWeight.w300;
-  static const FontWeight normal = FontWeight.w500;
-  static const FontWeight semiBold = FontWeight.w600;
-  static const FontWeight bold = FontWeight.w700;
+  // Configuration
+  static const double _baseScreenWidth = 1440;
+  static const double _minScaleFactor = 0.9;
+  static const double _maxScaleFactor = 1.25;
 
-  // Helper method to calculate responsive font size
-  static double _getResponsiveFontSize(BuildContext context, double baseSize) {
-    final screenWidth = MediaQuery.of(context).size.width;
-    final baseFontSize = baseSize.sp;
+  static const FontWeights weights = FontWeights();
+  static const FontSizes sizes = FontSizes();
 
-    final responsiveSize = (baseFontSize * (screenWidth / 1440))
-        .clamp(baseSize * 0.9, baseSize * 1.25);
-
-    return responsiveSize;
-  }
-
-  static TextStyle _getTextStyle(
-    BuildContext context,
-    double baseSize,
-    FontWeight weight,
-  ) {
-    return TextStyle(
-      fontFamily: fontFamily,
-      fontSize: _getResponsiveFontSize(context, baseSize),
+  static TextStyle style({
+    required BuildContext context,
+    required double size,
+    required FontWeight weight,
+    Color color = AppColors.textColor,
+    double letterSpacing = 0,
+    String fontFamily = primaryFont, // Default to primary font
+  }) {
+    return GoogleFonts.getFont(
+      fontFamily,
+      fontSize: _responsiveSize(context, size),
       fontWeight: weight,
-      color: AppColors.textColor,
+      color: color,
+      letterSpacing: letterSpacing,
     );
   }
 
-  static TextStyle text11Light(BuildContext context) =>
-      _getTextStyle(context, 11, light);
-  static TextStyle text11Normal(BuildContext context) =>
-      _getTextStyle(context, 11, normal);
-  static TextStyle text11SemiBold(BuildContext context) =>
-      _getTextStyle(context, 11, semiBold);
-  static TextStyle text11Bold(BuildContext context) =>
-      _getTextStyle(context, 11, bold);
+  static double _responsiveSize(BuildContext context, double baseSize) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    return (baseSize.sp * (screenWidth / _baseScreenWidth))
+        .clamp(baseSize * _minScaleFactor, baseSize * _maxScaleFactor);
+  }
+}
 
-  // Font size 12
-  static TextStyle text12Light(BuildContext context) =>
-      _getTextStyle(context, 12, light);
-  static TextStyle text12Normal(BuildContext context) =>
-      _getTextStyle(context, 12, normal);
-  static TextStyle text12SemiBold(BuildContext context) =>
-      _getTextStyle(context, 12, semiBold);
-  static TextStyle text12Bold(BuildContext context) =>
-      _getTextStyle(context, 12, bold);
+class FontWeights {
+  const FontWeights();
 
-  // Font size 14
-  static TextStyle text14Light(BuildContext context) =>
-      _getTextStyle(context, 14, light);
-  static TextStyle text14Normal(BuildContext context) =>
-      _getTextStyle(context, 14, normal);
-  static TextStyle text14SemiBold(BuildContext context) =>
-      _getTextStyle(context, 14, semiBold);
-  static TextStyle text14Bold(BuildContext context) =>
-      _getTextStyle(context, 14, bold);
+  final FontWeight light = FontWeight.w300;
+  final FontWeight normal = FontWeight.w500;
+  final FontWeight semiBold = FontWeight.w600;
+  final FontWeight bold = FontWeight.w700;
+}
 
-  // Font size 16
-  static TextStyle text16Light(BuildContext context) =>
-      _getTextStyle(context, 16, light);
-  static TextStyle text16Normal(BuildContext context) =>
-      _getTextStyle(context, 16, normal);
-  static TextStyle text16SemiBold(BuildContext context) =>
-      _getTextStyle(context, 16, semiBold);
-  static TextStyle text16Bold(BuildContext context) =>
-      _getTextStyle(context, 16, bold);
+class FontSizes {
+  const FontSizes();
 
-  // Font size 18
-  static TextStyle text18SemiBold(BuildContext context) =>
-      _getTextStyle(context, 18, semiBold);
-
-  // Font size 20
-  static TextStyle text20Light(BuildContext context) =>
-      _getTextStyle(context, 20, light);
-  static TextStyle text20Normal(BuildContext context) =>
-      _getTextStyle(context, 20, normal);
-  static TextStyle text20SemiBold(BuildContext context) =>
-      _getTextStyle(context, 20, semiBold);
-  static TextStyle text20Bold(BuildContext context) =>
-      _getTextStyle(context, 20, bold);
-
-  // Font size 24
-  static TextStyle text24Light(BuildContext context) =>
-      _getTextStyle(context, 24, light);
-  static TextStyle text24Normal(BuildContext context) =>
-      _getTextStyle(context, 24, normal);
-  static TextStyle text24SemiBold(BuildContext context) =>
-      _getTextStyle(context, 24, semiBold);
-  static TextStyle text24Bold(BuildContext context) =>
-      _getTextStyle(context, 24, bold);
-  // Font SIZE 28
-  static TextStyle text28Light(BuildContext context) =>
-      _getTextStyle(context, 28, light);
-  static TextStyle text28Normal(BuildContext context) =>
-      _getTextStyle(context, 28, normal);
-  static TextStyle text28SemiBold(BuildContext context) =>
-      _getTextStyle(context, 28, semiBold);
-  static TextStyle text28Bold(BuildContext context) =>
-      _getTextStyle(context, 28, bold);
-// FONT SIZE 32
-  static TextStyle text32Light(BuildContext context) =>
-      _getTextStyle(context, 32, light);
-  static TextStyle text32Normal(BuildContext context) =>
-      _getTextStyle(context, 32, normal);
-  static TextStyle text32SemiBold(BuildContext context) =>
-      _getTextStyle(context, 32, semiBold);
-  static TextStyle text32Bold(BuildContext context) =>
-      _getTextStyle(context, 32, bold);
-
-  // FONT SIZE 36
-  static TextStyle text36Light(BuildContext context) =>
-      _getTextStyle(context, 36, light);
-  static TextStyle text36Normal(BuildContext context) =>
-      _getTextStyle(context, 36, normal);
-  static TextStyle text36SemiBold(BuildContext context) =>
-      _getTextStyle(context, 36, semiBold);
-  static TextStyle text36Bold(BuildContext context) =>
-      _getTextStyle(context, 36, bold);
+  final double s11 = 11;
+  final double s12 = 12;
+  final double s14 = 14;
+  final double s16 = 16;
+  final double s18 = 18;
+  final double s20 = 20;
+  final double s24 = 24;
+  final double s28 = 28;
+  final double s32 = 32;
+  final double s36 = 36;
 }
