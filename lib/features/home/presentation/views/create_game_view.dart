@@ -1,4 +1,5 @@
 import 'package:bingo/core/extensions/font_styles_extensions.dart';
+import 'package:bingo/core/routes/routes_name.dart';
 import 'package:bingo/core/ui/app_colors.dart';
 import 'package:bingo/core/ui/widgets/main_button.dart';
 import 'package:flutter/material.dart';
@@ -21,9 +22,10 @@ class CreateGameView extends StatelessWidget {
                 'Create a new game and start the excitement!',
                 style: context.bodyLarge,
               ),
-              const MainButton(
+              MainButton(
                 label: 'Create a game',
                 color: AppColors.primaryColor,
+                onPressed: () => Navigator.pushNamed(context, RoutesName.game),
               ),
             ],
           ),
