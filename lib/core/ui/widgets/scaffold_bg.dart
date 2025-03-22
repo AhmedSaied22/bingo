@@ -16,7 +16,7 @@ class ScaffoldBackground extends StatelessWidget {
       color: Colors.black,
       child: Stack(
         children: [
-          BlurredImage(),
+          const BlurredImage(),
           _buildGlowEffect(
             alignment: const Alignment(-0.8, -0.8),
             color: AppColors.secondaryColor.withValues(alpha: 0.22),

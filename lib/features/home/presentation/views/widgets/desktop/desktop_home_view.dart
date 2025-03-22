@@ -26,7 +26,7 @@ class DesktopHomeView extends StatelessWidget {
             endIndent: context.screenWidth * 0.35,
           ),
           SizedBox(height: context.screenHeight * 0.03),
-          HomeButtons(),
+          const HomeButtons(),
         ],
       ),
     );

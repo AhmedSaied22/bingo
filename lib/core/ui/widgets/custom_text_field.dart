@@ -1,3 +1,4 @@
+import 'package:bingo/core/extensions/font_styles_extensions.dart';
 import 'package:bingo/core/ui/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -18,6 +19,7 @@ class CustomTextField extends StatelessWidget {
   final FocusNode? focusNode;
   final bool readOnly;
   final bool isValidator;
+  final Color? fillColor;
   final TextStyle? labelStyle;
   final void Function(String)? onChanged;
   final void Function()? onTap;
@@ -55,12 +57,12 @@ class CustomTextField extends StatelessWidget {
       this.minLines,
       this.labelStyle,
       this.onFieldSubmitted,
-      this.hintStyle});
+      this.hintStyle,
+      this.fillColor});
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      textAlign: TextAlign.right,
       inputFormatters: inputFormatters,
       keyboardType: keyboardType,
       onTap: onTap,
@@ -96,16 +98,16 @@ class CustomTextField extends StatelessWidget {
         FocusManager.instance.primaryFocus!.unfocus();
       },
       decoration: InputDecoration(
-        hintTextDirection: TextDirection.rtl,
         labelStyle: labelStyle,
         contentPadding: EdgeInsets.symmetric(vertical: 12.h, horizontal: 4.w),
         errorText: errorText,
         labelText: showLabel && controller != null ? hintText : null,
         hintText: hintText,
-        hintStyle: hintStyle,
+        fillColor: fillColor,
+        hintStyle: hintStyle ?? context.hintText,
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(borderRadius ?? 14.r),
-          borderSide: const BorderSide(color: AppColors.primaryColor),
+          borderSide: const BorderSide(color: AppColors.secondaryColor),
         ),
         prefixIcon: prefixIcon,
         prefix: prefixIcon == null
@@ -123,7 +125,7 @@ class CustomTextField extends StatelessWidget {
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(borderRadius ?? 12.r),
-          borderSide: const BorderSide(color: AppColors.primaryColor),
+          borderSide: const BorderSide(color: AppColors.secondaryColor),
         ),
       ),
     );

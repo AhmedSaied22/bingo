@@ -1,3 +1,4 @@
+import 'package:bingo/core/routes/routes_name.dart';
 import 'package:bingo/core/ui/app_colors.dart';
 import 'package:bingo/core/ui/widgets/main_button.dart';
 import 'package:flutter/material.dart';
@@ -13,8 +14,12 @@ class HomeButtons extends StatelessWidget {
     return Column(
       spacing: 16.h,
       children: [
-        MainButton(label: 'Join a game', color: AppColors.secondaryColor),
-        MainButton(label: 'Create a game', color: AppColors.primaryColor),
+        MainButton(
+          label: 'Join a game',
+          color: AppColors.secondaryColor,
+          onPressed: () => Navigator.pushNamed(context, RoutesName.joinGame),
+        ),
+        const MainButton(label: 'Create a game', color: AppColors.primaryColor),
       ],
     );
   }
