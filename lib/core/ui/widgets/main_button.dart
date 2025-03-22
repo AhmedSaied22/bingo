@@ -1,6 +1,7 @@
 import 'package:bingo/core/extensions/font_styles_extensions.dart';
 import 'package:bingo/core/extensions/media_query_extensions.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MainButton extends StatelessWidget {
   const MainButton({
@@ -8,20 +9,24 @@ class MainButton extends StatelessWidget {
     required this.label,
     required this.color,
     this.onPressed,
-    this.height,
+    this.minHeight,
+    this.maxHeight,
   });
 
   final String label;
   final void Function()? onPressed;
   final Color color;
-  final double? height;
+  final double? minHeight;
+  final double? maxHeight;
 
   @override
   Widget build(BuildContext context) {
     return ConstrainedBox(
       constraints: BoxConstraints(
-          minWidth: context.screenWidth * 0.3,
-          maxWidth: context.screenWidth * 0.4),
+          minWidth: context.screenWidth * 0.32,
+          maxWidth: context.screenWidth * 0.4,
+          minHeight: minHeight ?? 50.h,
+          maxHeight: maxHeight ?? 70.h),
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           backgroundColor: color,

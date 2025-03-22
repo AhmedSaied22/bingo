@@ -1,4 +1,5 @@
 import 'package:bingo/core/routes/routes_name.dart';
+import 'package:bingo/features/home/presentation/views/create_game_view.dart';
 import 'package:bingo/features/home/presentation/views/home_view.dart';
 import 'package:bingo/features/home/presentation/views/join_game_view.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +15,8 @@ class RouteGenerator {
         return _buildRoute(const HomeView(), RouteTransition.fade);
       case RoutesName.joinGame:
         return _buildRoute(const JoinGameView(), RouteTransition.fade);
-
+      case RoutesName.createGame:
+        return _buildRoute(const CreateGameView(), RouteTransition.fade);
       default:
         return _errorRoute();
     }

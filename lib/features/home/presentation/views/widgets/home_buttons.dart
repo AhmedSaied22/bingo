@@ -19,7 +19,11 @@ class HomeButtons extends StatelessWidget {
           color: AppColors.secondaryColor,
           onPressed: () => Navigator.pushNamed(context, RoutesName.joinGame),
         ),
-        const MainButton(label: 'Create a game', color: AppColors.primaryColor),
+        MainButton(
+          label: 'Create a game',
+          color: AppColors.primaryColor,
+          onPressed: () => Navigator.pushNamed(context, RoutesName.createGame),
+        ),
       ],
     );
   }
