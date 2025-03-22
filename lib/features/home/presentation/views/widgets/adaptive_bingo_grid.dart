@@ -9,6 +9,8 @@ class AdaptiveBingoGrid extends StatelessWidget {
   final double tabletScale;
   final double desktopScale;
   final double minGridSize;
+  final Set<int> selectedNumbers;
+  final Function(int) onNumberSelected;
 
   const AdaptiveBingoGrid({
     super.key,
@@ -16,6 +18,8 @@ class AdaptiveBingoGrid extends StatelessWidget {
     required this.tabletScale,
     required this.desktopScale,
     required this.minGridSize,
+    required this.selectedNumbers,
+    required this.onNumberSelected,
   });
 
   double _getScaleFactor(BuildContext context) {
@@ -40,7 +44,10 @@ class AdaptiveBingoGrid extends StatelessWidget {
             border: Border.all(color: AppColors.primaryColor, width: 2),
             borderRadius: BorderRadius.circular(10),
           ),
-          child: const BingoGrid(),
+          child: BingoGrid(
+            selectedNumbers: selectedNumbers,
+            onNumberSelected: onNumberSelected,
+          ),
         );
       },
     );

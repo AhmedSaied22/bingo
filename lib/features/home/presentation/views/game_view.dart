@@ -11,6 +11,18 @@ class GameView extends StatefulWidget {
 }
 
 class _GameViewState extends State<GameView> {
+  final Set<int> selectedNumbers = {};
+
+  void _handleNumberSelection(int number) {
+    setState(() {
+      if (selectedNumbers.contains(number)) {
+        selectedNumbers.remove(number);
+      } else {
+        selectedNumbers.add(number);
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,11 +39,13 @@ class _GameViewState extends State<GameView> {
                 style: context.bodyLarge,
                 textAlign: TextAlign.center,
               ),
-              const AdaptiveBingoGrid(
+              AdaptiveBingoGrid(
                 mobileScale: 0.7,
                 tabletScale: 0.6,
                 desktopScale: 0.4,
                 minGridSize: 300,
+                selectedNumbers: selectedNumbers,
+                onNumberSelected: _handleNumberSelection,
               ),
             ],
           ),

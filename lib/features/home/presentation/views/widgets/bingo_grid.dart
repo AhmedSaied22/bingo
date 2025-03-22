@@ -3,7 +3,14 @@ import 'package:bingo/features/home/presentation/views/widgets/bingo_number_cell
 import 'package:flutter/material.dart';
 
 class BingoGrid extends StatelessWidget {
-  const BingoGrid({super.key});
+  final Set<int> selectedNumbers;
+  final Function(int) onNumberSelected;
+
+  const BingoGrid({
+    super.key,
+    required this.selectedNumbers,
+    required this.onNumberSelected,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -17,8 +24,11 @@ class BingoGrid extends StatelessWidget {
         crossAxisSpacing: 0,
       ),
       itemCount: bingoNumbers.length,
-      itemBuilder: (context, index) =>
-          BingoNumberCell(number: bingoNumbers[index]),
+      itemBuilder: (context, index) => BingoNumberCell(
+        number: bingoNumbers[index],
+        isSelected: selectedNumbers.contains(bingoNumbers[index]),
+        onTap: () => onNumberSelected(bingoNumbers[index]),
+      ),
     );
   }
 }

@@ -4,7 +4,15 @@ import 'package:flutter/material.dart';
 
 class BingoNumberCell extends StatelessWidget {
   final int number;
-  const BingoNumberCell({super.key, required this.number});
+  final bool isSelected;
+  final VoidCallback onTap;
+
+  const BingoNumberCell({
+    super.key,
+    required this.number,
+    required this.isSelected,
+    required this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -15,10 +23,12 @@ class BingoNumberCell extends StatelessWidget {
           color: AppColors.primaryColor.withValues(alpha: 0.7),
         ),
       ),
-      color: const Color.fromARGB(255, 46, 46, 46),
+      color: isSelected
+          ? AppColors.primaryColor.withValues(alpha: 0.5)
+          : const Color.fromARGB(255, 46, 46, 46),
       child: InkWell(
         borderRadius: BorderRadius.circular(25),
-        onTap: () => _handleTap(),
+        onTap: onTap,
         child: Center(
           child: Text(
             '$number',
