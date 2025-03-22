@@ -19,11 +19,15 @@ class ScaffoldBackground extends StatelessWidget {
           const BlurredImage(),
           _buildGlowEffect(
             alignment: const Alignment(-0.8, -0.8),
-            color: AppColors.secondaryColor.withValues(alpha: 0.22),
+            color: AppColors.primaryColor.withValues(alpha: 0.22),
           ),
           _buildGlowEffect(
             alignment: const Alignment(1.2, 0.8),
-            color: AppColors.secondaryColor.withValues(alpha: 0.2),
+            color: AppColors.primaryColor.withValues(alpha: 0.2),
+          ),
+          _buildGlowEffect(
+            alignment: const Alignment(0.5, 0.8),
+            color: AppColors.secondaryColor.withValues(alpha: 0.08),
           ),
           _buildGlowEffect(
             alignment: const Alignment(1.2, 0.5),

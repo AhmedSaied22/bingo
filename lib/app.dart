@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
               child: child!,
             );
           },
-          initialRoute: RoutesName.home,
+          initialRoute: RoutesName.game,
           navigatorKey: navigatorKey,
           onGenerateRoute: RouteGenerator.generateRoute,
         );
